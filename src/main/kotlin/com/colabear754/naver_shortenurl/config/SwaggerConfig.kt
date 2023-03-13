@@ -14,6 +14,6 @@ class SwaggerConfig {
         .info(
             Info()
             .title("URL 단축")
-            .description("네이버 단축 URL을 호출하여 단축 URL을 생성합니다.")
+            .description("네이버 단축 URL API를 호출하여 단축 URL을 생성합니다.")
             .version("1.0.0"))
 }
