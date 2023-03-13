@@ -11,3 +11,5 @@ springdoc:
   api-docs:
     groups:
       enabled: true
+server:
+  port: 51139
