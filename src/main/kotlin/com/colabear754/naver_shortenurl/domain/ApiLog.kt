@@ -2,6 +2,7 @@ package com.colabear754.naver_shortenurl.domain
 
 import jakarta.persistence.*
 import java.time.LocalDate
+import java.util.*
 
 @Entity
 class ApiLog(
@@ -10,11 +11,11 @@ class ApiLog(
     @Column(length = Int.MAX_VALUE)
     val shortenUrl: String,
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val sequence: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    val id: UUID? = null,
     private val callingDate: LocalDate = LocalDate.now()
 ) {
     override fun toString(): String {
-        return "ApiLog(sequence=$sequence, originUrl='$originUrl', shortenUrl='$shortenUrl', callingDate=$callingDate)"
+        return "ApiLog(id=$id, originUrl='$originUrl', shortenUrl='$shortenUrl', callingDate=$callingDate)"
     }
 }

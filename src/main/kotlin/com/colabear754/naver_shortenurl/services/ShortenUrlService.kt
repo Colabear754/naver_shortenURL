@@ -12,8 +12,8 @@ class ShortenUrlService(private val apiLogRepository: ApiLogRepository) {
         val result = ExternalApiGroup.NAVER_SHORTEN_URL.call(originUrl).result!!
         val shortenUrl = result.url
         val apiLog = apiLogRepository.save(ApiLog(originUrl, shortenUrl))
-        return ApiLogResponse(apiLog.sequence, apiLog.originUrl, apiLog.shortenUrl)
+        return ApiLogResponse(apiLog.id, apiLog.originUrl, apiLog.shortenUrl)
     }
 
-    fun getApiLog() = apiLogRepository.findAll().map { ApiLogResponse(it.sequence, it.originUrl, it.shortenUrl) }
+    fun getApiLog() = apiLogRepository.findAll().map { ApiLogResponse(it.id, it.originUrl, it.shortenUrl) }
 }
